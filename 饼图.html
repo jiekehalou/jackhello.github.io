@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #chart{
+            width:400px;
+            height:400px;
+            margin:0 auto;
+            border: 1px solid #e2e6ed;
+        }
+        .color{
+        color:#67A1FF;
+        color:#FFB14E;
+        color:#76CC56;
+        color:#FC6161;
+        color:#FF7013;
+        color:#A77DDB;
+        color:#3274C0;
+        color:#7637CC;
+        color:#bda29a;
+        color:#6e7074;
+        color:#546570;
+        color:#c4ccd3;
+        }
+    </style>
+</head>
+<body>
+<div id="chart">
+
+</div>
+</body>
+<script src="js/echat.js"></script>
+<script>
+    let myChart= echarts.init(document.getElementById('chart'));
+    let legendData=['荆州','兖州','益州','西凉'];
+    let data= [{value:535, name: '荆州'},
+        {value:510, name: '兖州'},
+        {value:634, name: '益州'},
+        {value:735, name: '西凉'}];
+    var option = {
+        color: [
+            "#67A1FF",
+            "#FFB14E",
+            "#76CC56",
+            "#FF7013",
+            "#A77DDB",
+            "#3274C0",
+            "#7637CC",
+            "#bda29a",
+            "#6e7074",
+            "#546570",
+            "#c4ccd3"
+        ],
+        toolbox: {
+            show: true
+        },
+        legend: {
+            left: 'center',
+            top: "top",
+            itemWidth:13,
+            itemHeight:13,
+            data: legendData
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c}件 <br/>所占比例：({d}%)"
+        },
+        series: [
+            {
+                name: legendData[0],
+                type: "pie",
+                center: ["50%", "55%"],
+                radius: ["18%", "50%"],
+                data: data,
+
+                label: {
+                    normal: {
+                        formatter: "{b}  {c}",
+                        textStyle: {
+                            // fontSize: 1,
+                            color: "#666666"
+                        }
+                        // formatter: " {b} \n : {c} ({d}%)"
+                    }
+                },
+                itemStyle: {
+                    label: {
+                        show: true
+                        // formatter: "{b}  {c} "
+                    },
+                    labelLine: {
+                        smooth: 0,
+                        length: 10,
+                        length2: 30
+                    },
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: "rgba(0, 0, 0, 0.5)"
+                    }
+                }
+            }
+        ]
+        // });
+    };
+    myChart.setOption(option);
+</script>
+</html>

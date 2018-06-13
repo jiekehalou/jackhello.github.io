@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #chart{
+            width:400px;
+            height:400px;
+            margin:0 auto;
+            border: 1px solid #e2e6ed;
+        }
+    </style>
+</head>
+<body>
+<div id="chart">
+
+</div>
+</body>
+<script src="js/echat.js"></script>
+<script>
+    let myChart= echarts.init(document.getElementById('chart'));
+    let legendData=['国道 ', '省道 ', '县道 ', '村道 '];
+    var option = {
+        color: [
+            "#6AA3FF",
+            "#FC6161",
+            "#FFD45D",
+            "#79CB5D",
+            "#FF7F3E",
+            "#A780D9",
+            "#32B4CA",
+            "#FF7777",
+            "#FEA641",
+            "#546570",
+            "#c4ccd3"
+        ],
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            itemWidth:13,
+            itemHeight:13,
+            data: legendData
+        },
+        grid: {
+            left: '12%',
+            right: '15%',
+            bottom: '10%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                name: '区域',
+                type: 'category',
+                axisLabel: {
+                    interval: 0,
+                    rotate: -30,
+                    textStyle:{
+                        color:'#666666',
+                        fontSize:10
+                    }
+
+                },
+                data: ['龙潭区','丰满区','船营区','昌邑区', '高新开发区','经济开发区', '市管主街路'],
+                splitLine: {show: false}
+            }
+        ],
+        yAxis: {
+            name: "里程数（公里）",
+            nameGap:15
+        },
+        series: [
+            {
+                name:legendData[0],
+                type: 'bar',
+                stack:" ",
+                data: [1,2,3,3,4,3,4,2]
+            },
+            {
+                name: legendData[1],
+                type: 'bar',
+                stack:" ",
+                data: [1,2,3,3,4,3,4,2]
+            },
+            {
+                name: legendData[2],
+                type: 'bar',
+                stack:" ",
+                data: [1,2,3,3,4,3,4,2]
+            },
+            {
+                name: legendData[3],
+                type: 'bar',
+                stack:" ",
+                data: [1,2,3,3,4,3,4,2]
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+</html>

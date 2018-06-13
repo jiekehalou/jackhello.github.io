@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #chart{
+            width:400px;
+            height:360px;
+            margin:0 auto;
+            border: 1px solid #e2e6ed;
+        }
+    </style>
+</head>
+<body>
+<div id="chart">
+
+</div>
+</body>
+<script src="js/echat.js"></script>
+<script>
+    let myChart= echarts.init(document.getElementById('chart'));
+
+    let legendData=['国道','省道','县道','村道','专用公路'];
+    let Xdata=['荆州','兖州','益州','西凉','杭州','许昌','洛阳'];
+    let option = {
+        color:[
+            "#FC6C60",
+            "#FCC82A",
+            "#48BF68",
+            "#3C99FC",
+            "#8d73d2",
+            "#3274C0",
+            "#7637CC",
+            "#bda29a",
+            "#6e7074",
+            "#546570",
+            "#c4ccd3"
+        ],
+        tooltip: {
+            trigger: "axis",
+            axisPointer: {
+                // 坐标轴指示器，坐标轴触发有效
+                type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            itemWidth: 13,
+            itemHeight: 13,
+            data: legendData
+        },
+        grid: {
+            top:'18%',
+            left: '12%',
+            right: '15%',
+            bottom: '10%',
+            containLabel: true
+        },
+        dataZoom: [
+            {
+                id: "dataZoomX",
+                type: "slider",
+                xAxisIndex: [0],
+                filterMode: "filter", // 设定为 'filter' 从而 X 的窗口变化会影响 Y 的范围。
+                start: 0,
+                end: 15
+            }
+        ],
+        xAxis: [
+            {
+                name: '区域',
+                type: 'category',
+                axisLabel: {
+                    interval: 0,
+                    rotate: -30,
+                    textStyle: {
+                        color: '#666666',
+                        fontSize: 10
+                    }
+
+                },
+                data:Xdata
+            }
+        ],
+        yAxis: [
+            {
+                name: "里程数（公里）",
+                type: "value",
+                axisTick: {
+                    alignWithLabel: true,
+                    show: false
+                }
+            }
+        ],
+        series: [
+            {
+                name: legendData[0],
+                type: 'bar',
+                data: [320, 332, 301]
+            },
+            {
+                name: legendData[1],
+                type: 'bar',
+                data: [220, 182, 191]
+            },  {
+                name: legendData[2],
+                type: 'bar',
+                data: [220, 182, 191]
+            },
+            {
+                name: legendData[3],
+                type: 'bar',
+                data: [220, 182, 191]
+            },
+            {
+                name: legendData[4],
+                type: 'bar',
+                data: [220, 182, 191]
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分类统计</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="title">
+        <ul>
+            <li >区域统计</li>
+            <li class="title_active">分类统计</li>
+            <li>部门统计</li>
+        </ul>
+    </div>
+</div>
+<div class="content">
+    <div class="controlBox">
+        <span class="text_l">案卷统计0（件）</span>
+        <span class="text_r" id="menu">近一月</span>
+        <div id="chartBox"></div>
+    </div>
+    <div id="chooseBox">
+        <form action=""  id="form">
+        <p>时间跨度：<span class="chooseP_r clear"><span class="three" id="day" value="day">三天</span><span class="three" id="week" value="week">一周</span><span class="three" id="month" value="month">一个月</span></span></p>
+        <p>起止时间：<span class="chooseP_r"><input type="date" id="start"> <span class="between"></span><input type="date" id="end" ></span></p>
+        <p><input type="reset"> <input type="button" value="确定"></p>
+        </form>
+    </div>
+</div>
+
+</body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/echat.js"></script>
+<script src="js/fenlei.js"></script>
+</html>

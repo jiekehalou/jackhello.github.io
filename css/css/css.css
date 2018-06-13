@@ -1,0 +1,37 @@
+body {
+  font-size: 0;
+}
+.moudal {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  text-align: center;
+  line-height: 200px;
+  background-color: #3baeda;
+  font-size: 16px;
+  color: #fff;
+}
+.moudal:hover {
+  background-color: #2fb3e6;
+}
+.moudal:focus {
+  background-color: #41abd4;
+}
+.moudal:nth-child(2) {
+  background-color: #da673b;
+}
+.moudal:nth-child(4) {
+  background-color: #aeda3b;
+}
+.moudal:nth-child(6) {
+  background-color: #da3bae;
+}
+.moudal:nth-child(7) {
+  background-color: #f7f7f7;
+}
+.moudal:nth-child(8) {
+  background-color: #a9c2ee;
+}
+.moudal:nth-child(9) {
+  background-color: #800000;
+}

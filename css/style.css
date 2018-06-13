@@ -1,0 +1,216 @@
+/*领导端手机页面*/
+*{
+    margin: 0;padding: 0;
+}
+html,body{
+   font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+li{
+    list-style: none;
+}
+.clear:after{
+    content: '';
+    width: 0;
+    height: 0;
+    clear: both;
+}
+.container{
+    width: 17.325rem;
+    margin: 0 auto;
+
+    /*border-bottom: 1px solid grey;*/
+}
+.title{
+    height:1.75rem ;
+    color: #429BF9;
+    line-height: 1.75rem;
+    margin: 0.75rem auto 0 auto;
+}
+.title ul{
+    font-size: 0;
+}
+.title_active{
+    background:#429BF9;
+    color: white;
+}
+
+.title ul li{
+    font-size: 0.75rem;
+    display: inline-block;
+    width: 5.775rem;
+    box-sizing: border-box;
+    text-align: center;
+    border:1px solid #429BF9;
+    cursor: pointer;
+}
+
+.title ul li:nth-child(1){
+border-right: none;
+}
+.title ul li:nth-child(1),.title ul li:nth-child(2){
+border-right-color:transparent;
+}
+.controlBox{
+    position: relative;
+    padding-top: 0.75rem;
+    margin:0.75rem auto 0 auto ;
+    width:16.25rem ;
+    font-size:0.75rem ;
+    color: #333333;
+    white-space: nowrap;
+}
+.inner{
+    margin:0.75rem auto 0 auto ;
+}
+.controlBox span{
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+    box-sizing: border-box;
+
+}
+.text_l{
+text-align: left;
+}
+.text_r{
+    text-align: right;
+    padding-right:1.5rem;
+    background: url(../img/xialaanniu.png) right center no-repeat;
+    cursor: pointer;
+    background-size:1.5rem 1.5rem ;
+    -webkit-tap-highlight-color: transparent;
+}
+.menuUp{
+    background: url(../img/shangla.png) right center no-repeat;
+    background-size:1.5rem 1.5rem ;
+}
+.content{
+    position: relative;
+}
+.back{
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 0.75rem;
+    background: url(../img/fanhui.png) left center no-repeat;
+    background-size: auto 1rem;
+    padding-left: 1rem;
+    cursor: pointer;
+    display: none;
+}
+.back img{
+    height: 1.0rem;
+    vertical-align: middle;
+    margin: 0;
+}
+#chartBox{
+    margin:0.75rem auto 0 auto ;
+    height: 18rem;
+    box-sizing: border-box;
+    z-index: 0;
+    border: 1px solid whitesmoke;
+}
+#chooseBox{
+    height: 15.75rem;
+    width: 100%;
+    position: absolute;
+    top:2.225;
+    background: rgba(0, 0, 0, 0.30);
+    display: none;
+    z-index: 1;
+    line-height:2.5rem ;
+}
+#chooseBox p{
+    background: white;
+    padding: 0 1.55rem;
+    font-size: 0.65rem;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.threeBox{
+    display: inline-block;
+    vertical-align: middle;
+}
+.chooseP_r{
+    display: inline-block;
+    min-width: 11.55rem;
+    vertical-align: middle;
+    height:1.5rem;
+    font-size: 0;
+    line-height: 1.5rem;
+    float: right;
+    margin-top:0.5rem ;
+    text-align: right;
+}
+
+.chooseP_r span:nth-child(1){
+    margin-left: 0;
+}
+.three{
+    height: 1.5rem;
+    width: 3.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5rem;
+    margin-left:0.55rem ;
+    background: #F5F5F5;
+    text-align: center;
+    font-size: 0.65rem;
+    cursor: pointer;
+}
+#month{
+    background:#429BF9;
+    color: white
+}
+#start,#end{
+    width: 4.95rem;
+    height: 1.45rem;
+    vertical-align: middle;
+    outline: none;
+    border: 1px solid #E3E6ED;
+    text-align: center;
+}
+.between{
+    display: inline-block;
+    vertical-align: middle;
+    width:0.55rem ;
+    height: 0.1rem;
+    background:#E3E6EF ;
+    margin:0 0.5rem ;
+}
+#chooseBox p:last-child{
+    padding: 0 1.25rem;
+    font-size: 0;
+}
+#chooseBox p:last-child input[type='reset']{
+width: 7.75rem;
+    height: 1.5rem;
+    background: #CCCCCC;
+    outline: none;
+    border: none;
+    font-size: 0.75rem;
+    margin-right: 0.375rem;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;;
+}
+#chooseBox p:last-child input[type='button']{
+    width: 7.75rem;
+    height: 1.5rem;
+    background: #4199FA;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 0.75rem;
+    margin-left: 0.375rem;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;;
+}
