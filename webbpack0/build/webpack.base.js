@@ -14,6 +14,7 @@ const purifyCssWebpack = require("purifycss-webpack");
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
+
 function assetsPath(_path_) {
     let assetsSubDirectory;
     if (process.env.NODE_ENV === 'production') {
@@ -30,17 +31,16 @@ module.exports = {
         "main": './src/main.js',
     },
     output: {
-        path: resolve('dist/static'),
-        filename: 'js/[name]-[hash].js'
-        // filename: "[name].bundle.js"//打包后输出文件的文件名
+        path: resolve('dist/'),
+        filename: 'static/js/[name]-[hash].js'
+            // filename: "[name].bundle.js"//打包后输出文件的文件名
     },
     resolve: {
         extensions: [".js", ".css", ".json"],
         alias: {} //配置别名可以加快webpack查找模块的速度
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.html$/,
                 use: [{
                     loader: 'html-withimg-loader',
@@ -65,16 +65,17 @@ module.exports = {
                     loader: "babel-loader",
                     options: {
                         presets: [
-                            "env", "react"
+                            "env"
                         ],
+
                     },
                 },
                 include: [resolve('src')],
                 exclude: /node_modules/
             }, {
                 test: /\.css$/,
-                use:["style-loader","css-loader","postcss-loader"]
-                   
+                use: ["style-loader", "css-loader", "postcss-loader"]
+
             },
             {
                 test: /\.less$/,
@@ -95,13 +96,17 @@ module.exports = {
                         limit: 1 * 1024
                     }
                 },
+                // include: [resolve('src')],
+                // exclude: [
+                //     path.resolve('static'),
+                // ],
             },
             {
                 test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: assetsPath('media/[name].[hash:7].[ext]')
+                    name: assetsPath('media/[name].[ext]')
                 }
             },
             {
@@ -110,7 +115,6 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         name: assetsPath('font/[name].[hash:7].[ext]'), // 图片输出的路径
-                        publicPath: '/dist/',
                         limit: 1 * 1024
                     }
                 },
@@ -139,7 +143,7 @@ module.exports = {
         // 消除冗余的css代码
         new purifyCssWebpack({
             // glob为扫描模块，使用其同步方法
-            paths: glob.sync(path.join(__dirname,"..","src/*.html"))
+            paths: glob.sync(path.join(__dirname, "..", "src/*.html"))
         }),
         new MiniCssExtractPlugin({
             filename: "[name].css",

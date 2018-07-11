@@ -14,34 +14,31 @@ const merge = require('webpack-merge')
 // const WebpackParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
 // const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin') //压缩css 
 module.exports = merge(baseConfig, {
-    output:{
+    output: {
         publicPath: './' //这里要放的是静态资源CDN的地址(一般只在生产环境下配置)
     },
     plugins: [
-
-          //收context影响；
+        //收context影响；
         new HtmlWebpackPlugin({
-            template:path.resolve(__dirname, '..', 'src', 'index-tmpl.html'),//new 一个这个插件的实例，并传入相关的参数
-            filename:'index.html',
-            chunks:['main'],
+            template: path.resolve(__dirname, '..', 'src', 'index-tmpl.html'), //new 一个这个插件的实例，并传入相关的参数
+            filename: 'index.html',
+            chunks: ['main'],
             // vendor: './vendor.dll.js',
-            hash:true,//防止缓存
-            minify:{
-                removeAttributeQuotes:true//压缩 去掉引号
+            hash: true, //防止缓存
+            minify: {
+                removeAttributeQuotes: true //压缩 去掉引号
             }
         }),
-        new CopyWebpackPlugin([
-            {
-                from: path.join(__dirname, '..', 'static'),
-                to: path.join(__dirname,  '..', 'dist', 'static'),
-                ignore: ['.*']
-            }
-        ]),
+        // new CopyWebpackPlugin([{
+        //     from: path.join(__dirname, '..', 'static'),
+        //     to: path.join(__dirname, '..', 'dist'),
+        //     ignore: ['.*']
+        // }]),
         new CleanWebpackPlugin(['dist'], {
             root: path.join(__dirname, '..'),
             exclude: ['manifest.json', 'vendor.dll.js'],
             verbose: true,
-            dry:  false
+            dry: false
         }),
         // new OptimizeCSSPlugin({
         //     cssProcessorOptions: {safe: true}
