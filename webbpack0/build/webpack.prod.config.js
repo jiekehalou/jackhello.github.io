@@ -2,8 +2,8 @@
 
 const path = require('path');
 
-const CopyWebpackPlugin = require('copy-webpack-plugin') // 复制静态资源的插件
-const CleanWebpackPlugin = require('clean-webpack-plugin') // 清空打包目录的插件
+// const CopyWebpackPlugin = require('copy-webpack-plugin') // 复制静态资源的插件
+const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 清空打包目录的插件
 const HtmlWebpackPlugin = require('html-webpack-plugin') // 生成html的插件
 const webpack = require('webpack')
 const baseConfig = require('./webpack.base')
@@ -34,7 +34,7 @@ module.exports = merge(baseConfig, {
         //     to: path.join(__dirname, '..', 'dist'),
         //     ignore: ['.*']
         // }]),
-        new CleanWebpackPlugin(['dist'], {
+        new CleanWebpackPlugin( {
             root: path.join(__dirname, '..'),
             exclude: ['manifest.json', 'vendor.dll.js'],
             verbose: true,
